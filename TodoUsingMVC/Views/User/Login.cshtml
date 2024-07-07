@@ -2,9 +2,9 @@
 @{
     ViewData["Title"] = "Login";
 }
-<div class="login-page d-flex justify-content-center align-items-center" >
-    <form asp-action="ViewAllTodo" method="post">
-        <div class="login-inp-div">
+<div style="width:100%;height:90vh">
+    <form asp-action="LoginUser" method="post" class="login-page d-flex justify-content-center align-items-center">
+        <div class="login-inp-div d-flex flex-column justify-content-center align-items-center">
             <input type="text" id="inp_login_mail" />
             <input type="text" id="inp_login_pass" />
             <button type="submit">Login</button>

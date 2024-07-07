@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using TodoUsingMVC;
 using TodoUsingMVC.Data;
 using TodoUsingMVC.Services;
 using TodoUsingMVC.Services.interfaces;
@@ -7,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddAutoMapper(typeof(Maper));
 builder.Services.AddDbContext<TodoContext>(t=>t.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 builder.Services.AddScoped<ITodoService, TodoService>();
 builder.Services.AddScoped<IUserService, UserService>();
