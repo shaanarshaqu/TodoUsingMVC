@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TodoUsingMVC.Data;
 using TodoUsingMVC.Models;
+using TodoUsingMVC.Services.interfaces;
 
 namespace TodoUsingMVC.Services
 {
@@ -17,12 +18,31 @@ namespace TodoUsingMVC.Services
         {
             try
             {
-                return await todoContext.TodoTb.FromSqlRaw("select * from TodoTb").ToListAsync();
+                return await todoContext.Todos.FromSqlRaw("select * from TodoTb").ToListAsync();
             }
             catch(Exception ex) 
             {
                 throw new Exception(ex.Message);
             }
+        }
+
+        public async Task<Todo> TodoSingle()
+        {
+            try
+            {
+                return await todoContext.Todos.FromSqlRaw("select * from TodoTb").FirstOrDefaultAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+
+        public async Task<int> AddTodo(Todo todo)
+        {
+            await todoContext.AddAsync(todo);
+            return await todoContext.SaveChangesAsync();
         }
     }
 }

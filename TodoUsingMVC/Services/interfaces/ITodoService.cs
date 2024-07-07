@@ -1,6 +1,6 @@
 ﻿using TodoUsingMVC.Models;
 
-namespace TodoUsingMVC.Services
+namespace TodoUsingMVC.Services.interfaces
 {
     public interface ITodoService
     {

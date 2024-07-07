@@ -1,15 +1,15 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using TodoUsingMVC.Models;
-using TodoUsingMVC.Services;
+using TodoUsingMVC.Services.interfaces;
 
 namespace TodoUsingMVC.Controllers
 {
-    public class HomeController : Controller
+    public class TodoController : Controller
     {
         private readonly ITodoService todoService;
 
-        public HomeController(ITodoService todoService)
+        public TodoController(ITodoService todoService)
         {
             this.todoService = todoService;
         }
@@ -26,7 +26,19 @@ namespace TodoUsingMVC.Controllers
             }
         }
 
-        
+        public async Task<IActionResult> SingleTodo()
+        {
+            try
+            {
+                return View();
+            }
+            catch (Exception ex)
+            {
+                return View("Error");
+            }
+        }
+
+
 
         /*        public IActionResult Privacy()
                 {

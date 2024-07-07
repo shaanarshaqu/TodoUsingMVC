@@ -1,0 +1,13 @@
+﻿@model LoginDto
+@{
+    ViewData["Title"] = "Login";
+}
+<div class="login-page d-flex justify-content-center align-items-center" >
+    <form asp-action="ViewAllTodo" method="post">
+        <div class="login-inp-div">
+            <input type="text" id="inp_login_mail" />
+            <input type="text" id="inp_login_pass" />
+            <button type="submit">Login</button>
+        </div>
+    </form>  
+</div>
