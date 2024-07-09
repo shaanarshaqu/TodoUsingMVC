@@ -1,7 +1,16 @@
-﻿@model 
+﻿@model List<Todo>
 @{
     ViewData["Title"] = "Todos";
 }
-<div>
-
+<div style="width:100%;" class="d-flex flex-column align-items-center">
+    <form asp-action="Add" method="post" style="margin:50px 0px">
+        <input type="text" name="Title" placeholder="Enter a new todo" required />
+        <button type="submit">Add</button>
+    </form>
+    @foreach(var @todo in Model)
+    {
+        <div class="d-flex justify-content-center align-items-center" style="width:90%;height:60px;border-radius:5px; background-color:lightgray;margin-bottom:5px">
+            <h6><a style="text-decoration:none;color:black" ; href="@Url.Action("TodoById", "Todo", new { id = todo.Id })">@todo.Title</a></h6>
+        </div>
+    }
 </div>

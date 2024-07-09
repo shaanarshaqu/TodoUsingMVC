@@ -14,27 +14,27 @@ namespace TodoUsingMVC.Controllers
             this.todoService = todoService;
         }
 
-        public async Task<IActionResult> Home()
+        public async Task<IActionResult> ViewAllTodo()
         {
             try
             {
-                return View(await todoService.ListAllTodos());
-            }
-            catch (Exception ex)
+                List<Todo> todooos = await todoService.ListAllTodos();
+                return View(todooos);
+            }catch (Exception ex)
             {
-                return View("Error");
+                return View(new List<Todo>());
+                return View("Error",new ErrorViewModel { RequestId="sdfs"});
             }
         }
 
-        public async Task<IActionResult> SingleTodo()
+        public async Task<IActionResult> TodoById(string id)
         {
             try
             {
-                return View();
-            }
-            catch (Exception ex)
+                return View(await todoService.TodoSingle(id));
+            }catch (Exception ex)
             {
-                return View("Error");
+                return View("Error", new ErrorViewModel { RequestId = "sdfs" });
             }
         }
 

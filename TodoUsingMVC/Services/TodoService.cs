@@ -18,7 +18,7 @@ namespace TodoUsingMVC.Services
         {
             try
             {
-                return await todoContext.Todos.FromSqlRaw("select * from TodoTb").ToListAsync();
+                return await todoContext.Todos.FromSqlRaw("select * from Todos").ToListAsync();
             }
             catch(Exception ex) 
             {
@@ -26,11 +26,11 @@ namespace TodoUsingMVC.Services
             }
         }
 
-        public async Task<Todo> TodoSingle()
+        public async Task<Todo> TodoSingle(string id)
         {
             try
             {
-                return await todoContext.Todos.FromSqlRaw("select * from TodoTb").FirstOrDefaultAsync();
+                return await todoContext.Todos.FromSqlRaw($"select * from Todos where Id = {id}").FirstOrDefaultAsync();
             }
             catch (Exception ex)
             {

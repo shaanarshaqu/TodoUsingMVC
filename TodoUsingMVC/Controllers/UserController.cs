@@ -19,8 +19,17 @@ namespace TodoUsingMVC.Controllers
         [HttpPost]
         public IActionResult LoginUser(LoginDto user)
         {
-            bool IsLoggedIn = userService.LoginUser(user);
-            return RedirectToAction("Index", "Home");
+            try
+            {
+                bool IsLoggedIn = userService.LoginUser(user);
+                return IsLoggedIn ? RedirectToAction("ViewAllTodo", "Todo") : View("Login");
+            }
+            catch (Exception ex)
+            {
+                return View("Login");
+            }
         }
+
+
     }
 }

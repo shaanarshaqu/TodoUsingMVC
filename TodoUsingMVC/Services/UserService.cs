@@ -9,8 +9,8 @@ namespace TodoUsingMVC.Services
     public class UserService:IUserService
     {
         private readonly TodoContext todoContext;
-        private readonly Mapper maper;
-        public UserService(TodoContext todoContext, Mapper maper)
+        private readonly IMapper maper;
+        public UserService(TodoContext todoContext, IMapper maper)
         {
             this.todoContext = todoContext;
             this.maper = maper;
