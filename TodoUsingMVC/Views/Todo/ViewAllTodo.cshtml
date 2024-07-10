@@ -1,16 +1,18 @@
-﻿@model List<Todo>
+﻿@model TestModel
 @{
     ViewData["Title"] = "Todos";
 }
 <div style="width:100%;" class="d-flex flex-column align-items-center">
-    <form asp-action="Add" method="post" style="margin:50px 0px">
-        <input type="text" name="Title" placeholder="Enter a new todo" required />
-        <button type="submit">Add</button>
+    <form style="width:100%;margin:50px 0px;" class="d-flex justify-content-center align-items-center" asp-action="AddTodo" method="post">
+        <input asp-for="todo.Title" style="width:70%;max-width:500px;height:40px;border:none;border-radius:20px;outline:1px solid black;padding-left:10px" type="text" name="Title" placeholder="Enter a new todo" required />
+        <button style="padding:8px 15px;border-radius:10px;margin-left:8px;background-color:black;color:white;border:none;" type="submit">Add</button>
     </form>
-    @foreach(var @todo in Model)
+    @foreach(var @todo in Model.listoftodos)
     {
-        <div class="d-flex justify-content-center align-items-center" style="width:90%;height:60px;border-radius:5px; background-color:lightgray;margin-bottom:5px">
-            <h6><a style="text-decoration:none;color:black" ; href="@Url.Action("TodoById", "Todo", new { id = todo.Id })">@todo.Title</a></h6>
+        <div class="d-flex justify-content-center align-items-center" style="width:90%;height:60px;border-radius:5px; background-color:black;margin-bottom:5px">
+            <h5><a style="text-decoration:none;color:white;" href="@Url.Action("TodoById", "Todo", new { id = todo.Id })">@todo.Title</a></h5>
         </div>
     }
 </div>
+
+

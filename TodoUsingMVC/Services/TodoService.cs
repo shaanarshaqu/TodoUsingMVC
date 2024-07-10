@@ -41,8 +41,15 @@ namespace TodoUsingMVC.Services
 
         public async Task<int> AddTodo(Todo todo)
         {
-            await todoContext.AddAsync(todo);
-            return await todoContext.SaveChangesAsync();
+            try
+            {
+                await todoContext.AddAsync(todo);
+                return await todoContext.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

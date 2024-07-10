@@ -6,5 +6,6 @@ namespace TodoUsingMVC.Services.interfaces
     {
         Task<List<Todo>> ListAllTodos();
         Task<Todo> TodoSingle(string id);
+        Task<int> AddTodo(Todo todo);
     }
 }
