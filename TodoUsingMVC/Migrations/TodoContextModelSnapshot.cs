@@ -24,18 +24,18 @@ namespace TodoUsingMVC.Migrations
             modelBuilder.Entity("TodoUsingMVC.Models.Todo", b =>
                 {
                     b.Property<string>("Id")
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                        .HasMaxLength(38)
+                        .HasColumnType("nvarchar(38)");
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                        .HasMaxLength(38)
+                        .HasColumnType("nvarchar(38)");
 
                     b.Property<string>("user_id")
                         .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                        .HasMaxLength(38)
+                        .HasColumnType("nvarchar(38)");
 
                     b.HasKey("Id");
 
@@ -67,8 +67,8 @@ namespace TodoUsingMVC.Migrations
             modelBuilder.Entity("TodoUsingMVC.Models.User", b =>
                 {
                     b.Property<string>("Id")
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                        .HasMaxLength(38)
+                        .HasColumnType("nvarchar(38)");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -82,8 +82,8 @@ namespace TodoUsingMVC.Migrations
 
                     b.Property<string>("UserName")
                         .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                        .HasMaxLength(38)
+                        .HasColumnType("nvarchar(38)");
 
                     b.HasKey("Id");
 

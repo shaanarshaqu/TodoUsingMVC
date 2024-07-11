@@ -7,7 +7,7 @@
 namespace TodoUsingMVC.Migrations
 {
     /// <inheritdoc />
-    public partial class someimprovementsonpropertysizes : Migration
+    public partial class increasedlengthofid : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -16,8 +16,8 @@ namespace TodoUsingMVC.Migrations
                 name: "Users",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
-                    UserName = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(38)", maxLength: 38, nullable: false),
+                    UserName = table.Column<string>(type: "nvarchar(38)", maxLength: 38, nullable: false),
                     Email = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Password = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
                 },
@@ -30,9 +30,9 @@ namespace TodoUsingMVC.Migrations
                 name: "Todos",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
-                    Title = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
-                    user_id = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false)
+                    Id = table.Column<string>(type: "nvarchar(38)", maxLength: 38, nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(38)", maxLength: 38, nullable: false),
+                    user_id = table.Column<string>(type: "nvarchar(38)", maxLength: 38, nullable: false)
                 },
                 constraints: table =>
                 {

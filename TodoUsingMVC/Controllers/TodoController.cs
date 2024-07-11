@@ -46,7 +46,7 @@ namespace TodoUsingMVC.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    int isAdded = await todoService.AddTodo(new Todo() { Title= model.Title,Id="erdrt",user_id="1" }); // Assuming todoService.AddTodo expects a single Todo object
+                    int isAdded = await todoService.AddTodo(new Todo() { Title= model.Title,Id=Guid.NewGuid().ToString(),user_id="1" }); // Assuming todoService.AddTodo expects a single Todo object
                     return RedirectToAction("ViewAllTodo"); // Redirect to action to show all todos after adding
                 }
                 else
