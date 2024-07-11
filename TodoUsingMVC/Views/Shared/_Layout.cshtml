@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="~/TodoUsingMVC.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
 </head>
-<body>
+<body style="margin:0">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-dark">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-dark position-fixed" style="width:100%">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Todo" asp-action="ViewAllTodo">
                     <span style="color:white">
@@ -32,17 +32,16 @@
             </div>
         </nav>
     </header>
-    <div>
         <main role="main">
             @RenderBody()
         </main>
-    </div>
+    
 
-    <footer class="footer text-muted">
+    @* <footer class="footer text-muted">
         <div class="container">
             This is a Test
         </div>
-    </footer>
+    </footer> *@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
