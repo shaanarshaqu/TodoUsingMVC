@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using TodoUsingMVC.Data;
 using TodoUsingMVC.Models;
 using TodoUsingMVC.Services.interfaces;
@@ -30,7 +31,7 @@ namespace TodoUsingMVC.Services
         {
             try
             {
-                return await todoContext.Todos.FromSqlRaw($"select * from Todos where Id = {id}").FirstOrDefaultAsync();
+                return await todoContext.Todos.FromSqlRaw("SELECT * FROM Todos WHERE Id = @id", new SqlParameter("@id", id)).FirstOrDefaultAsync();
             }
             catch (Exception ex)
             {

@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
+using Serilog;
 using TodoUsingMVC.Models;
 using TodoUsingMVC.Models.DTOs;
 using TodoUsingMVC.Services.interfaces;
@@ -31,7 +31,9 @@ namespace TodoUsingMVC.Controllers
         {
             try
             {
-                return View(await todoService.TodoSingle(id));
+                var a = await todoService.TodoSingle(id);
+                Log.Information("{@a}", a);
+                return View(a);
             }catch (Exception ex)
             {
                 return View("Error", new ErrorViewModel { RequestId = "sdfs" });
